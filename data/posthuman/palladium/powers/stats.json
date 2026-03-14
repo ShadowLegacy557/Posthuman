@@ -1,0 +1,74 @@
+{
+    "name": "Stat Screen",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "icon": "minecraft:barrier",
+    "abilities": {
+        "strength_levels": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.strengthTraining",
+            "level": "posthuman.strengthLevel",
+            "max": "posthuman.strengthMax",
+            "hidden": false,
+            "title": "Strength Training",
+            "description": "Increase your strength level by working out.",
+            "max_level": 100,
+            "amount": 1,
+            "modifier": 2
+        },
+        "health_levels": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.healthTraining",
+            "level": "posthuman.healthLevel",
+            "max": "posthuman.healthMax",
+            "hidden": false,
+            "title": "Health Training",
+            "description": "Increase your health level by taking damage.",
+            "max_level": 100,
+            "amount": 1,
+            "modifier": 2
+        },
+        "mana_levels": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.manaTraining",
+            "level": "posthuman.manaLevel",
+            "max": "posthuman.manaMax",
+            "hidden": false,
+            "title": "Mana Training",
+            "description": "Increase your mana level by using majik.",
+            "max_level": 100,
+            "amount": 1,
+            "modifier": 2
+        },
+        "stamina_levels": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.staminaTraining",
+            "level": "posthuman.staminaLevel",
+            "max": "posthuman.staminaMax",
+            "hidden": false,
+            "title": "Stamina Training",
+            "description": "Increase your stamina level by using abilities. Only if you have a non-majik or tech based power.",
+            "max_level": 100,
+            "amount": 1,
+            "modifier": 2
+        },
+        "strength_modifier": {
+            "type": "posthuman:dynamic_attribute",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 0.01,
+            "intervals": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100],
+            "uuid": "395ab835-9b91-47ea-a237-3738daf41a8e",
+            "property": "posthuman.strengthLevel",
+            "hidden": true
+        },
+        "health_modifier": {
+            "type": "posthuman:dynamic_attribute",
+            "attribute": "minecraft:generic.max_health",
+            "amount": 0.01,
+            "intervals": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100],
+            "uuid": "a35b10d3-5504-44f4-82f2-9b84990cc6e6",
+            "property": "posthuman.healthLevel",
+            "hidden": true
+        }
+    }
+}

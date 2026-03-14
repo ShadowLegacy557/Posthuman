@@ -1,0 +1,7 @@
+{
+    "name": "Umbrakinesis",
+    "icon": "posthuman:textures/icons/powers/umbrakinesis/main.png",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "gui_display_type": "tree",
+    "persistent_data": true
+}

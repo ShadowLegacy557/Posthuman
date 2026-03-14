@@ -1,0 +1,474 @@
+{
+    "name": "Pyrokinesis",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "icon": "#posthuman:pyrokinesis/main",
+    "gui_display_type": "tree",
+    "abilities": {
+        "main": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.pyrokinesisMastery",
+            "level": "posthuman.pyrokinesisLevel",
+            "max": "posthuman.pyrokinesisMax",
+            "amount": 100,
+            "modifier": 1.5,
+            "max_level": 100,
+            "colour": 6,
+            "icon": "#posthuman:pyrokinesis/main",
+            "title": "Pyrokinesis",
+            "description": "You have the power to manipulate and generate fire at will.",
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "mastery_gain": {
+            "type": "posthuman:mastery_gain_prop",
+            "prop": "posthuman.pyrokinesisMastery",
+            "hidden": true,
+            "amount": 50,
+            "power": "pyrokinesis",
+            "pos_mult": 1.5,
+            "neg_mult": 2,
+            "lvl_mult": 0.1,
+            "forgiveness": "nice",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    }
+                ]
+            }
+        },
+        "flight": {
+            "type": "palladium:attribute_modifier",
+            "icon": "#posthuman:pyrokinesis/flight",
+            "title": "Pyrokinetic Flight",
+            "description": "You can fly by propelling yourself with fire.",
+            "attribute": "palladium:flight_speed",
+            "gui_position": [
+                1,
+                0
+            ],
+            "amount": 1.4,
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisLevel",
+                        "min": 2,
+                        "max": 100
+                    }
+                ]
+            }
+        },
+        "flight_orange": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_orange",
+            "emitter": "posthuman:limbs",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 0,
+                        "max": 0
+                    }
+                ]
+            }
+        },
+        "flight_blue": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_blue",
+            "emitter": "posthuman:limbs",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 1,
+                        "max": 1
+                    }
+                ]
+            }
+        },
+        "flight_green": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_green",
+            "emitter": "posthuman:limbs",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 2,
+                        "max": 2
+                    }
+                ]
+            }
+        },
+        "flight_purple": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_purple",
+            "emitter": "posthuman:limbs",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 3,
+                        "max": 3
+                    }
+                ]
+            }
+        },
+        "flight_white": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_white",
+            "emitter": "posthuman:limbs",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 4,
+                        "max": 4
+                    }
+                ]
+            }
+        },
+        "fireball_main": {
+            "type": "palladium:dummy",
+            "icon": "#posthuman:pyrokinesis/fireball",
+            "gui_position": [
+                -1,
+                0
+            ],
+            "title": "Fireball",
+            "description": "Launch a ball of fire that explodes on impact.",
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    }
+                ],
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 60
+                    }
+                ]
+            }
+        },
+        "fireball_orange": {
+            "type": "palladium:projectile",
+            "entity_type": "palladium:custom_projectile",
+            "hidden": true,
+            "velocity": 3,
+            "entity_data": {
+                "Damage": 3,
+                "Gravity": 0,
+                "DieOnEntityHit": true,
+                "DieOnBlockHit": true,
+                "ExplosionRadius": 0.5,
+                "ExplosionCausesFire": true,
+                "Appearances": [
+                    {
+                        "Type": "item",
+                        "Item": "minecraft:stone"
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "posthuman:fire_orange",
+                        "Spread": 0.1
+                    }
+                ]
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 0,
+                        "max": 0
+                    }
+                ]
+            }
+        },
+        "fireball_blue": {
+            "type": "palladium:projectile",
+            "entity_type": "palladium:custom_projectile",
+            "hidden": true,
+            "velocity": 3,
+            "entity_data": {
+                "Damage": 3,
+                "Gravity": 0,
+                "DieOnEntityHit": true,
+                "DieOnBlockHit": true,
+                "ExplosionRadius": 0.5,
+                "ExplosionCausesFire": true,
+                "Appearances": [
+                    {
+                        "Type": "item",
+                        "Item": "minecraft:stone"
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "posthuman:fire_blue",
+                        "Spread": 0.1
+                    }
+                ]
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 1,
+                        "max": 1
+                    }
+                ]
+            }
+        },
+        "fireball_green": {
+            "type": "palladium:projectile",
+            "entity_type": "palladium:custom_projectile",
+            "hidden": true,
+            "velocity": 3,
+            "entity_data": {
+                "Damage": 3,
+                "Gravity": 0,
+                "DieOnEntityHit": true,
+                "DieOnBlockHit": true,
+                "ExplosionRadius": 0.5,
+                "ExplosionCausesFire": true,
+                "Appearances": [
+                    {
+                        "Type": "item",
+                        "Item": "minecraft:stone"
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "posthuman:fire_green",
+                        "Spread": 0.1
+                    }
+                ]
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 2,
+                        "max": 2
+                    }
+                ]
+            }
+        },
+        "fireball_purple": {
+            "type": "palladium:projectile",
+            "entity_type": "palladium:custom_projectile",
+            "hidden": true,
+            "velocity": 3,
+            "entity_data": {
+                "Damage": 3,
+                "Gravity": 0,
+                "DieOnEntityHit": true,
+                "DieOnBlockHit": true,
+                "ExplosionRadius": 0.5,
+                "ExplosionCausesFire": true,
+                "Appearances": [
+                    {
+                        "Type": "item",
+                        "Item": "minecraft:stone"
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "posthuman:fire_purple",
+                        "Spread": 0.1
+                    }
+                ]
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 3,
+                        "max": 3
+                    }
+                ]
+            }
+        },
+        "fireball_white": {
+            "type": "palladium:projectile",
+            "entity_type": "palladium:custom_projectile",
+            "hidden": true,
+            "velocity": 3,
+            "entity_data": {
+                "Damage": 3,
+                "Gravity": 0,
+                "DieOnEntityHit": true,
+                "DieOnBlockHit": true,
+                "ExplosionRadius": 0.5,
+                "ExplosionCausesFire": true,
+                "Appearances": [
+                    {
+                        "Type": "item",
+                        "Item": "minecraft:stone"
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "posthuman:fire_white",
+                        "Spread": 0.1
+                    }
+                ]
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "fireball_main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.pyrokinesisColour",
+                        "min": 4,
+                        "max": 4
+                    }
+                ]
+            }
+        },
+        "flame_colour_cycle": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.pyrokinesisColour",
+            "title": "Cycle Flame Colour",
+            "description": "Cycle through the different flame colours.",
+            "amount": 1,
+            "mode": "add",
+            "num2": 4,
+            "num3": 0,
+            "reset": true,
+            "icon": "#posthuman:pyrokinesis/main",
+            "gui_position": [
+                0,
+                1
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:blaze_powder"
+                        },
+                        "amount": 1
+                    }
+                ]
+            }
+        },
+        "reset_cycle_ability": {
+            "type": "palladium:command",
+            "commands": [
+                "ability lock @s posthuman:pyrokinesis flame_colour_cycle"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                     {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "flame_colour_cycle"
+                    }
+                ]
+            }
+        },
+        "mastery": {
+            "type": "posthuman:prop_tell",
+            "prop": "posthuman.pyrokinesisMastery",
+            "hidden": true,
+            "message": "Your pyrokinesis mastery is at ",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ]
+            }
+        },
+        "level": {
+            "type": "posthuman:prop_tell",
+            "prop": "posthuman.pyrokinesisLevel",
+            "hidden": true,
+            "message": "Your pyrokinesis level is at ",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ]
+            }
+        },
+        "set_burn": {
+            "type": "posthuman:set_fire",
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "condition": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "ability": "flight"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

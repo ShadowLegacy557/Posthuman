@@ -1,0 +1,16 @@
+{
+    "durability_multiplier": 20,
+    "slot_protections": [
+        3,
+        8,
+        6,
+        3
+    ],
+    "enchantment_value": 30,
+    "equip_sound": "minecraft:item.armor.equip_iron",
+    "toughness": 2.0,
+    "knockback_resistance": 0.2,
+    "repair_ingredient": {
+        "tag": "palladium:titanium"
+    }
+}

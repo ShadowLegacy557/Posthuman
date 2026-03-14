@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "posthuman:items/curios/power_armour_ring"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "type": "palladium:compound",
+    "layers": [
+        {
+            "model_layer": "posthuman:ring",
+            "texture": "posthuman:textures/models/iron_ring.png",
+            "conditions": {
+                "type": "palladium:item_in_slot",
+                "slot": "curios:ring",
+                "item": {
+                    "item": "posthuman:iron_ring"
+                }
+            }
+        },
+        {
+            "model_layer": "posthuman:ring",
+            "texture": "posthuman:textures/models/soul_ring.png",
+            "conditions": {
+                "type": "palladium:item_in_slot",
+                "slot": "curios:ring",
+                "item": {
+                    "item": "posthuman:soul_ring"
+                }
+            }
+        },
+        {
+            "model_layer": "posthuman:ring",
+            "texture": "posthuman:textures/models/power_armour_ring.png",
+            "conditions": {
+                "type": "palladium:item_in_slot",
+                "slot": "curios:ring",
+                "item": {
+                    "item": "posthuman:power_armour_ring"
+                }
+            }
+        }
+    ]
+}

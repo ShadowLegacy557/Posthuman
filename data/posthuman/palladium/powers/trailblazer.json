@@ -1,0 +1,175 @@
+{
+    "name": "Trailblazer",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "icon": "#posthuman:trailblazer/main",
+    "persistent_data": true,
+    "gui_display_type": "tree",
+    "abilities": {
+        "main": {
+            "type": "palladium:render_layer",
+            "render_layer": "posthuman:trailblazer_exhausts",
+            "title": "Trailblazer",
+            "icon": "#posthuman:trailblazer/main",
+            "description": "You have the ability to propell yourself using your leg exhausts. This can also generate fire.",
+            "hidden": false,
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "mastery": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.trailblazerMastery",
+            "level": "posthuman.trailblazerLevel",
+            "max": "posthuman.trailblazerMax",
+            "max_level": 100,
+            "amount": 100,
+            "modifier": 1.5,
+            "colour": 4
+        },
+        "select_hold": {
+            "type": "posthuman:prop_tell",
+            "prop": "posthuman.speedLevel",
+            "message": "Current Speed is: ",
+            "icon": "#posthuman:trailblazer/main",
+            "description": "Hold to change the speed you move.",
+            "title": "Speed Control",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ]
+            }
+        },
+        "select_increase": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.speedLevel",
+            "amount": 1,
+            "mode": "add",
+            "num2": 10,
+            "reset": false,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "scroll_up"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:in_water"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "select_hold"
+                    }
+                ]
+            }
+        },
+        "select_decrease": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.speedLevel",
+            "amount": 1,
+            "mode": "subtract",
+            "num2": 0,
+            "reset": false,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "scroll_down"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "select_hold"
+                    }
+                ]
+            }
+        },
+        "attribute": {
+            "type": "posthuman:dynamic_attribute",
+            "property": "posthuman.speedLevel",
+            "intervals": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ],
+            "amount": 0.05,
+            "attribute": "minecraft:generic.movement_speed",
+            "uuid": "0ab456ab-162d-4864-b220-b2fd36ded5c8",
+            "operation": "add"
+        },
+        "step_assist": {
+            "type": "palladium:command",
+            "commands": [
+                "scale set pehkui:step_height 2"
+            ],
+            "last_tick_commands": [
+                "scale set pehkui:step_height 1"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.speedLevel",
+                        "min": 1,
+                        "max": 10
+                    }
+                ]
+            }
+        },
+        "fire": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "minecraft:flame",
+            "emitter": [
+                "posthuman:trailblazer"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.speedLevel",
+                        "min": 1,
+                        "max": 10
+                    }
+                ]
+            }
+        },
+        "water_reset": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.speedLevel",
+            "mode": "set",
+            "amount": 0,
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:in_water"
+                    }
+                ]
+            }
+        }
+    }
+}

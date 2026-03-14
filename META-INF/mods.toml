@@ -1,0 +1,21 @@
+modLoader = 'lowcodefml'
+showAsResourcePack = false
+loaderVersion="[47]"
+license="All rights reserved"
+
+[[mods]]
+modId="posthuman"
+displayName="Post Human"
+version="1.0.0"
+logoFile = "logo.png"
+logoBlur = false
+description='''
+Hero based addon for palladium 1.20.1
+'''
+
+[[dependencies.posthuman]]
+modId = "palladium"
+mandatory = true
+versionRange = ">=4.2.1"
+ordering = "NONE"
+side = "BOTH"

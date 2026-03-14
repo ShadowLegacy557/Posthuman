@@ -1,0 +1,5 @@
+{
+    "textures": "posthuman:textures/armour/torquefire.png",
+    "model_layers": "posthuman:helmet",
+    "hide_second_layer": true
+}

@@ -1,0 +1,11 @@
+{
+    "base": "posthuman:textures/icons/powers/wings/main/main_#COLOUR.png",
+    "variables": {
+        "COLOUR": {
+            "type": "palladium:integer_property",
+            "property": "posthuman.wingsColour",
+            "min": 0,
+            "max": 8
+        }
+    }
+}

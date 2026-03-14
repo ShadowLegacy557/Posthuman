@@ -1,0 +1,183 @@
+{
+    "name": "Test Power",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "icon": "#posthuman:magnetokinesis/main",
+    "gui_display_type": "tree",
+    "abilities": {
+        "max_health": {
+            "type": "posthuman:prop_adjust_num",
+            "title": "Set Max Health",
+            "num": 100,
+            "mode": "set",
+            "prop": "posthuman.healthLevel",
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.healthLevel",
+                                "min": 100,
+                                "max": 100
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "min_health": {
+            "type": "posthuman:prop_adjust_num",
+            "title": "Set Min Health",
+            "num": 1,
+            "mode": "set",
+            "prop": "posthuman.healthLevel",
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.healthLevel",
+                                "min": 1,
+                                "max": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "max_strength": {
+            "type": "posthuman:prop_adjust_num",
+            "title": "Set Max Strength",
+            "num": 100,
+            "mode": "set",
+            "prop": "posthuman.strengthLevel",
+            "list_index": 1,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.strengthLevel",
+                                "min": 100,
+                                "max": 100
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "min_strength": {
+            "type": "posthuman:prop_adjust_num",
+            "title": "Set Min Strength",
+            "num": 1,
+            "mode": "set",
+            "prop": "posthuman.strengthLevel",
+            "list_index": 1,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.strengthLevel",
+                                "min": 1,
+                                "max": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "fire_res": {
+            "type": "palladium:damage_immunity",
+            "damage_sources": [
+                "minecraft:is_fire",
+                "minecraft:lava",
+                "minecraft:on_fire"
+            ],
+            "title": "Fire Immunity",
+            "description": "Grants immunity to fire damage.",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "posthuman:pdata_string",
+                        "data": "bodyPower",
+                        "value": "fire"
+                    }
+                ]
+            }
+        },
+        "fire_res_set": {
+            "type": "posthuman:tell_pdata",
+            "data": "first_join",
+            "boolean": true,
+            "title": "Get Boolean",
+            "list_index": 2,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ]
+            }
+        },
+        "fire_res_unset": {
+            "type": "posthuman:tell_pdata",
+            "data": "bodyPower",
+            "title": "Get String",
+            "list_index": 3,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ]
+            }
+        },
+        "prop_tell": {
+            "type": "posthuman:prop_tell",
+            "prop": "damage_score",
+            "amount": 1
+        },
+        "prop_add": {
+            "type": "posthuman:prop_add_test",
+            "prop": "damage_score",
+            "amount": 1,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action"
+                    }
+                ]
+            }
+        }
+    }
+}

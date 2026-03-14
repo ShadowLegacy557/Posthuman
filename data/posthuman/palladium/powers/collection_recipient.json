@@ -1,0 +1,310 @@
+{
+    "name": "Recipient",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "gui_display_type": "tree",
+    "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+    "abilities": {
+        "main": {
+            "type": "palladium:dummy",
+            "title": "Recipient Power",
+            "description": "You have been gifted power by another mortal...",
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "select_1": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 1,
+            "mode": "set",
+            "title": "Select Gifted Power 1",
+            "description": "Select your first gifted power.",
+            "gui_position": [
+                0,
+                4
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 1,
+                                "max": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }
+        },
+        "select_2": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 2,
+            "mode": "set",
+            "title": "Select Gifted Power 2",
+            "description": "Select your second gifted power.",
+            "gui_position": [
+                0,
+                3
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 2,
+                                "max": 2
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }
+        },
+        "select_3": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 3,
+            "mode": "set",
+            "title": "Select Gifted Power 3",
+            "description": "Select your third gifted power.",
+            "gui_position": [
+                0,
+                2
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 3,
+                                "max": 3
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }
+        },
+        "return_1": {
+            "type": "posthuman:reject_power",
+            "number": 1,
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "title": "Reject Power 1",
+            "description": "Deny the power you have been gifted",
+            "gui_position": [
+                0,
+                -3
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 1,
+                                "max": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }
+        },
+        "return_2": {
+            "type": "posthuman:reject_power",
+            "number": 2,
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "title": "Reject Power 2",
+            "description": "Deny the power you have been gifted",
+            "gui_position": [
+                0,
+                -2
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 2,
+                                "max": 2
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }},
+        "return_3": {
+            "type": "posthuman:reject_power",
+            "number": 3,
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "title": "Reject Power 3",
+            "description": "Deny the power you have been gifted",
+            "gui_position": [
+                0,
+                -1
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 3,
+                                "max": 3
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }},
+        "regain_original": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 0,
+            "mode": "set",
+            "title": "Regain Original Power",
+            "description": "Regain your original power.",
+            "gui_position": [
+                0,
+                1
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:integer_property",
+                                "property": "posthuman.currentPower",
+                                "min": 0,
+                                "max": 0
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 0
+                    }
+                ]
+            }
+        },
+        "reset_selection": {
+            "type": "palladium:command",
+            "first_tick_commands": [
+                "ability lock @s posthuman:collection_recipient select_1",
+                "ability lock @s posthuman:collection_recipient select_2",
+                "ability lock @s posthuman:collection_recipient select_3",
+                "ability lock @s posthuman:collection_recipient regain_original",
+                "ability lock @s posthuman:collection_recipient return_1",
+                "ability lock @s posthuman:collection_recipient return_2",
+                "ability lock @s posthuman:collection_recipient return_3"
+            ],
+            "commands": [],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "regain_original"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "select_1"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "select_2"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "select_3"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "return_1"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "return_2"
+                            },
+                            {
+                                "type": "palladium:ability_unlocked",
+                                "ability": "return_3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

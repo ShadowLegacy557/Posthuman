@@ -1,0 +1,98 @@
+{
+    "name": "Chaos Magic",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "icon": "#posthuman:chaosmagic/main",
+    "gui_display_type": "tree",
+    "abilities": {
+        "main": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.chaosmagicMastery",
+            "level": "posthuman.chaosmagicLevel",
+            "max": "posthuman.chaosmagicMax",
+            "amount": 100,
+            "modifier": 1.5,
+            "max_level": 100,
+            "colour": 6,
+            "icon": "#posthuman:chaosmagic/main",
+            "title": "Chaos Magic",
+            "description": "Chaos is the natural order to reality itself.",
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "chaos_colour_cycle": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.chaosmagicColour",
+            "title": "Cycle Chaos Colour",
+            "description": "Cycle through the different chaos colours.",
+            "amount": 1,
+            "mode": "add",
+            "num2": 5,
+            "num3": 0,
+            "reset": true,
+            "icon": "#posthuman:chaosmagic/main",
+            "gui_position": [
+                0,
+                1
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:emerald"
+                        },
+                        "amount": 1
+                    }
+                ]
+            }
+        },
+        "reset_cycle_ability": {
+            "type": "palladium:command",
+            "commands": [
+                "ability lock @s posthuman:chaosmagic chaos_colour_cycle"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                     {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "chaos_colour_cycle"
+                    }
+                ]
+            }
+        },
+        "colour_tell": {
+            "type": "posthuman:prop_tell",
+            "prop": "posthuman.chaosmagicColour",
+            "title": "Current Chaos Colour",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ]
+            }
+        },
+        "ce": {
+            "type": "palladium:particles",
+            "particle_type": "posthuman:cursed_energy",
+            "emitter": [
+                "posthuman:hands"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ]
+            }
+        }
+    }
+}

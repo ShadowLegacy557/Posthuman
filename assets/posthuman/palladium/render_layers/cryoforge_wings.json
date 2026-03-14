@@ -1,0 +1,25 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+      "model": "posthuman:geo/wings.geo.json",
+      "animation_file": "posthuman:animations/wings.animations.json",
+      "animation_controller": [
+        {
+          "name": "wings_close",
+          "triggers": {
+            "close": "wings.close"
+          }
+        },
+        {
+            "name": "wings_open",
+            "triggers": {
+                "open": "wings.open"
+            }
+        }
+      ],
+      "texture": "posthuman:textures/models/wings/ice.png"
+    }
+  ]
+}

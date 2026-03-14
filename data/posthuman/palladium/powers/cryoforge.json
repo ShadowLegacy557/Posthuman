@@ -1,0 +1,216 @@
+{
+    "name": "Cryoforge",
+    "icon": "posthuman:textures/icons/powers/cryoforge/main/main_0.png",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "gui_display_type": "tree",
+    "persistent_data": true,
+    "energy_bars": {
+        "cryokinetic_buildup": {
+            "max": 500,
+            "auto_increase_per_tick": 1,
+            "auto_increase_interval": 20,
+            "color": "#97ecff"
+        }
+    },
+    "abilities": {
+        "main": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.cryoforgeMastery",
+            "level": "posthuman.cryoforgeLevel",
+            "max": "posthuman.cryoforgeMax",
+            "max_level": 100,
+            "amount": 100,
+            "modifier": 1.5,
+            "colour": 4,
+            "title": "Cryoforge",
+            "icon": "posthuman:textures/icons/powers/cryoforge/main/main_0.png",
+            "description": "Your mastery over ice allows you to create weapons forged in the cold.",
+            "hidden": false,
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "forge": {
+            "type": "palladium:ability_wheel",
+            "icon": "posthuman:textures/icons/powers/cryoforge/main/main_0.png",
+            "abilities": [
+                "forge_sword",
+                "forge_axe",
+                "forge_claws"
+            ],
+            "gui_position": [
+                0,
+                -1
+            ],
+            "list_index": 0,
+            "title": "Forge Weapon",
+            "description": "Create weapons formed from ice.",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:held"
+                },
+                "unlocking": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "cryokinetic_buildup",
+                        "min": 20
+                    },
+                    {
+                        "type": "posthuman:free_hand",
+                        "hand": "main"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    }
+                ]
+            }
+        },
+        "forge_sword": {
+            "type": "palladium:command",
+            "commands": [
+                "item replace entity @s weapon.mainhand with posthuman:ice_sword"
+            ],
+            "icon": "posthuman:textures/icons/powers/cryoforge/sword.png",
+            "title": "Sword",
+            "energy_bar_usage": {
+                "energy_bar": "cryokinetic_buildup",
+                "amount": 20
+            },
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "forge_axe": {
+            "type": "palladium:command",
+            "commands": [
+                "item replace entity @s weapon.mainhand with posthuman:ice_battleaxe"
+            ],
+            "icon": "posthuman:textures/icons/powers/cryoforge/axe.png",
+            "title": "Axe",
+            "energy_bar_usage": {
+                "energy_bar": "cryokinetic_buildup",
+                "amount": 20
+            },
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "forge_claws": {
+            "type": "palladium:command",
+            "commands": [
+                "item replace entity @s weapon.mainhand with posthuman:ice_claws",
+                "item replace entity @s weapon.offhand with posthuman:ice_claws"
+            ],
+            "icon": "posthuman:textures/icons/powers/cryoforge/claws.png",
+            "title": "Claws",
+            "energy_bar_usage": {
+                "energy_bar": "cryokinetic_buildup",
+                "amount": 20
+            },
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "posthuman:free_hand",
+                        "hand": "off"
+                    }
+                ]
+            }
+        },
+        "forge_particles": {
+            "type": "palladium:particles",
+            "particle_type": "minecraft:snowflake",
+            "emitter": [
+                "posthuman:hand_right"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "ability": "forge_sword"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "ability": "forge_axe"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "forge_particles_claws": {
+            "type": "palladium:particles",
+            "particle_type": "minecraft:snowflake",
+            "emitter": [
+                "posthuman:hands"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "forge_claws"
+                    }
+                ]
+            }
+        },
+        "duelist_form_dummy": {
+            "type": "palladium:dummy",
+            "title": "Duelist Form",
+            "description": "Create wings of ice, allowing you to soar above your enemies.",
+            "icon": "posthuman:textures/icons/powers/cryoforge/wings.png",
+            "gui_position": [
+                0,
+                1
+            ],
+            "list_index": 1,
+            "energy_bar_usage": {
+                "energy_bar": "cryokinetic_buildup",
+                "amount": 1
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "cryokinetic_buildup",
+                        "min": 10
+                    }
+                ]
+            }
+        },
+        "wings_render": {
+            "type": "palladium:render_layer",
+            "render_layer": "posthuman:cryoforge_wings"
+        }
+    }
+}

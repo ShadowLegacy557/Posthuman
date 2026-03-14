@@ -1,0 +1,18 @@
+{
+    "level": 2,
+    "uses": 600,
+    "speed": 10,
+    "attack_damage_bonus": 3,
+    "enchantment_value": 8,
+    "repair_ingredient": [
+        {
+            "item": "minecraft:ice"
+        },
+        {
+            "item": "minecraft:blue_ice"
+        },
+        {
+            "item": "minecraft:packed_ice"
+        }
+    ]
+}

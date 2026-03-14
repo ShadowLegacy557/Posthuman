@@ -1,0 +1,18 @@
+{
+    "armor_material": "posthuman:supe_metal",
+    "creative_mode_tabs": [
+        "posthuman:armour"
+    ],
+    "chest": {
+        "item_name": "torquefire_chestplate"
+    },
+    "legs": {
+        "item_name": "torquefire_leggings"
+    },
+    "feet": {
+        "item_name": "torquefire_boots"
+    },
+    "head": {
+        "item_name": "torquefire_helmet"
+    }
+}

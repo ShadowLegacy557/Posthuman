@@ -1,0 +1,14 @@
+{
+    "pack": {
+        "id": "posthuman",
+        "description": "Hero Based Addon",
+        "pack_format": 15,
+        "version": "1.0.0.0"
+    },
+    "dependencies": {
+        "common": {
+            "minecraft": ">=1.20.1",
+            "palladium": ">=4.2.1"
+        }
+    }
+}

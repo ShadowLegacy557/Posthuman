@@ -1,0 +1,10 @@
+{
+    "type": "palladium:default",
+    "max_stack_size": 1,
+    "is_fire_resistant": false,
+    "render_layers": {
+        "curios:ring": [
+            "posthuman:ring"
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Wings",
+  "background": "minecraft:textures/block/black_concrete.png",
+  "persistent_data": true,
+  "gui_display_type": "tree",
+  "icon": "#posthuman:wings/main",
+  "abilities": {
+    "wing_render": {
+      "type": "palladium:render_layer",
+      "render_layer": "posthuman:wings_test"
+    },
+    "wings_close": {
+      "type": "geckolib:render_layer_animation",
+      "render_layer": "posthuman:wings_test",
+      "controller": "wings_close",
+      "animation_trigger": "close",
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:not",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "wings_open"
+            }
+          ]
+        }
+      }
+    },
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:flight_speed",
+      "amount": 1.4
+    },
+    "wings_open": {
+      "type": "geckolib:render_layer_animation",
+      "render_layer": "posthuman:wings_test",
+      "controller": "wings_open",
+      "animation_trigger": "open",
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle"
+        }
+      }
+    }
+  }
+}

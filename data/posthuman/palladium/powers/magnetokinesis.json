@@ -1,0 +1,12 @@
+{
+    "name": "Magnetokinesis",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "gui_display_type": "tree",
+    "icon": "#posthuman:magnetokinesis/main",
+    "abilities": {
+        "placeholder": {
+            "type": "palladium:dummy"
+        }
+    }
+}

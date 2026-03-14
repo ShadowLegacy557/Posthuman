@@ -1,0 +1,20 @@
+{
+    "name": "Permeation",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "icon": "#posthuman:permeation/main",
+    "gui_display_type": "tree",
+    "abilities": {
+        "phase": {
+            "type": "palladium:intangibility",
+            "vertical": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle"
+                    }
+                ]
+            }
+        }
+    }
+}

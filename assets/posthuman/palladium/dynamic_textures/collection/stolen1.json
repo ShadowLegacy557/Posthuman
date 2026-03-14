@@ -1,0 +1,10 @@
+{
+    "base": "posthuman:textures/icons/powers/#POWER/main/main_0.png",
+    "variables": {
+        "POWER": {
+            "type": "palladium:string_property",
+            "property": "posthuman.pSlot1",
+            "fallback": "collection"
+        }
+    }
+}

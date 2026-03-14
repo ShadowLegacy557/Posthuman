@@ -1,0 +1,11 @@
+{
+    "base": "posthuman:textures/icons/powers/chaosmagic/main/main_#COLOUR.png",
+    "variables": {
+        "COLOUR": {
+            "type": "palladium:integer_property",
+            "property": "posthuman.chaosmagicColour",
+            "min": 0,
+            "max": 5
+        }
+    }
+}

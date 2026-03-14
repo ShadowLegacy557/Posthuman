@@ -1,0 +1,291 @@
+{
+    "name": "Power Stealer",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "gui_display_type": "tree",
+    "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+    "abilities": {
+        "main": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.collectionMastery",
+            "level": "posthuman.collectionLevel",
+            "max": "posthuman.collectionMax",
+            "title": "Collection",
+            "description": "As a being of pure collection, you can steal and gift superpowers from and to other players.",
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "max_level": 100,
+            "amount": 100,
+            "modifier": 1.5,
+            "colour": 4,
+            "gui_posistion": [
+                0,
+                0
+            ]
+        },
+        "steal": {
+            "type": "posthuman:power_steal",
+            "title": "Steal Power",
+            "description": "Steal a superpower from a targeted player.",
+            "icon": "minecraft:ender_pearl",
+            "range": 5,
+            "whitelist": [
+                "posthuman:pyrokinesis",
+                "posthuman:cryoforge",
+                "posthuman:umbrakinesis",
+                "posthuman:magnetokinesis",
+                "posthuman:wings",
+                "posthuman:wraith",
+                "posthuman:chaosmagic",
+                "posthuman:trailblazer"
+            ],
+            "max": 3,
+            "gui_posistion": [
+                2,
+                0
+            ],
+            "hidden_in_bar": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "right_click"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "steal_screen"
+                    }
+                ]
+            }
+        },
+        "gift": {
+            "type": "posthuman:power_bestow",
+            "title": "Gift Power",
+            "description": "Gift a stolen superpower to a targeted player.",
+            "icon": "minecraft:ender_eye",
+            "list_index": 0,
+            "range": 5,
+            "max": 3,
+            "limited": true,
+            "gui_position": [
+                -2,
+                0
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.currentPower",
+                        "min": 1,
+                        "max": 3
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "regain_collection": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 0,
+            "mode": "set",
+            "icon": "posthuman:textures/icons/powers/collection/main/main_0.png",
+            "title": "Steal Mode",
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "stolen_1": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 1,
+            "mode": "set",
+            "hidden": true,
+            "icon": "#posthuman:collection/stolen1",
+            "title": "Slot 1",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "stolen_2": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 2,
+            "mode": "set",
+            "hidden": true,
+            "icon": "#posthuman:collection/stolen2",
+            "title": "Slot 2",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "stolen_3": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.currentPower",
+            "amount": 3,
+            "mode": "set",
+            "hidden": true,
+            "icon": "#posthuman:collection/stolen3",
+            "title": "Slot 3",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_wheel"
+                    }
+                ]
+            }
+        },
+        "slot_select": {
+            "type": "palladium:ability_wheel",
+            "title": "Select Power",
+            "icon": "minecraft:paper",
+            "abilities": [
+                "stolen_2",
+                "stolen_3",
+                "regain_collection",
+                "stolen_1"
+            ],
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:crouching"
+                    }
+                ]
+            }
+        },
+        "steal_screen": {
+            "type": "palladium:gui_overlay",
+            "title": "Steal Power",
+            "icon": "minecraft:ender_pearl",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "texture": "#posthuman:collection/stealing",
+            "texture_width": 200,
+            "texture_height": 200,
+            "alignment": "center",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "palladium:integer_property",
+                        "property": "posthuman.currentPower",
+                        "min": 0,
+                        "max": 0
+                    }
+                ]
+            }
+        },
+        "read_power": {
+            "type": "posthuman:read_slots",
+            "hidden": true,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "steal_screen"
+                }
+            }
+        },
+        "scroll_up": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.selector",
+            "amount": 1,
+            "mode": "add",
+            "num2": 3,
+            "num3": 0,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "reset": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "scroll_up"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "steal_screen"
+                    }
+                ]
+            }
+        },
+        "scroll_down": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.selector",
+            "amount": 1,
+            "mode": "subtract",
+            "num2": 0,
+            "num3": 3,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "reset": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "scroll_down"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "steal_screen"
+                    }
+                ]
+            }
+        }
+    }
+}

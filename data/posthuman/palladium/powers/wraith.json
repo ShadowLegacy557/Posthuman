@@ -1,0 +1,72 @@
+{
+    "name": "Wraith",
+    "background": "minecraft:textures/block/black_concrete.png",
+    "persistent_data": true,
+    "icon": "#posthuman:wraith/main",
+    "gui_display_type": "tree",
+    "abilities": {
+        "main": {
+            "type": "posthuman:mastery_prop",
+            "mastery": "posthuman.wraithMastery",
+            "level": "posthuman.wraithLevel",
+            "max": "posthuman.wraithMax",
+            "amount": 100,
+            "modifier": 1.5,
+            "max_level": 100,
+            "colour": 6,
+            "icon": "#posthuman:wraith/main",
+            "title": "Wraith Physiology",
+            "description": "You have the power to access a spectral form akin to legends.",
+            "gui_position": [
+                0,
+                0
+            ]
+        },
+        "wraith_colour_cycle": {
+            "type": "posthuman:prop_adjust_num",
+            "prop": "posthuman.wraithColour",
+            "title": "Cycle Wraith Colour",
+            "description": "Cycle through the different wraith colours.",
+            "amount": 1,
+            "mode": "add",
+            "num2": 1,
+            "num3": 0,
+            "reset": true,
+            "icon": "#posthuman:wraith/main",
+            "gui_position": [
+                0,
+                1
+            ],
+            "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "main"
+                    },
+                    {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:phantom_membrane"
+                        },
+                        "amount": 1
+                    }
+                ]
+            }
+        },
+        "reset_cycle_ability": {
+            "type": "palladium:command",
+            "commands": [
+                "ability lock @s posthuman:wraith wraith_colour_cycle"
+            ],
+            "hidden": true,
+            "conditions": {
+                "enabling": [
+                     {
+                        "type": "palladium:ability_unlocked",
+                        "ability": "wraith_colour_cycle"
+                    }
+                ]
+            }
+        }
+    }
+}
