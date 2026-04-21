@@ -1,0 +1,13 @@
+{
+    "render_type": "glow",
+    "model_layer": "posthuman:wide_model_base",
+    "hidden_body_parts": [
+        "chest_overlay",
+        "left_arm_overlay",
+        "right_arm_overlay",
+        "left_leg_overlay",
+        "right_leg_overlay",
+        "head_overlay"
+    ],
+    "texture": "posthuman:textures/models/player/wide/pyrokinesis/flamebody.png"
+}

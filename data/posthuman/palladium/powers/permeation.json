@@ -2,12 +2,27 @@
     "name": "Permeation",
     "background": "minecraft:textures/block/black_concrete.png",
     "persistent_data": true,
-    "icon": "#posthuman:permeation/main",
+    "icon": "minecraft:feather",
     "gui_display_type": "tree",
     "abilities": {
-        "phase": {
+        "phase_vert": {
             "type": "palladium:intangibility",
             "vertical": true,
+            "title": "True",
+            "icon": "minecraft:feather",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle"
+                    }
+                ]
+            }
+        },
+        "phase_no_vert": {
+            "type": "palladium:intangibility",
+            "vertical": false,
+            "title": "False",
+            "icon": "minecraft:feather",
             "conditions": {
                 "enabling": [
                     {

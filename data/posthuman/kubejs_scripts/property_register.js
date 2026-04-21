@@ -25,7 +25,7 @@ PalladiumEvents.registerProperties((event) => {
     powers.forEach(power => {
         event.registerProperty(`posthuman.${power}Level`, 'integer', 0)
         event.registerProperty(`posthuman.${power}Mastery`, 'float', 0)
-        event.registerProperty(`posthuman.${power}Max`, 'integer', 500)
+        event.registerProperty(`posthuman.${power}Max`, 'integer', 25)
         event.registerProperty(`posthuman.${power}Colour`, 'integer', 0)
     })
     stats.forEach(stat => {

@@ -10,5 +10,8 @@
     "item.posthuman.ice_sword": "Ice Sword",
     "item.posthuman.ice_battleaxe": "Ice Battleaxe",
     "item.posthuman.ice_claws": "Ice Claws",
-    "item.minecraft.potion.effect.catalyst": "Catalyst"
+    "item.minecraft.potion.effect.catalyst": "Catalyst",
+    "item.minecraft.splash_potion.effect.catalyst": "Splash Catalyst",
+    "item.minecraft.lingering_potion.effect.catalyst": "Lingering Catalyst",
+    "item.minecraft.tipped_arrow.effect.catalyst": "Tipped Catalyst Arrow"
 }

@@ -1,0 +1,7 @@
+{
+  "message_id": "frozen",
+  "exhaustion": 2,
+  "scaling": "always",
+  "effects": "hurt",
+  "death_message_type": "default"
+}

@@ -4,6 +4,13 @@
     "persistent_data": true,
     "icon": "#posthuman:pyrokinesis/main",
     "gui_display_type": "tree",
+    "energy_bars": {
+        "pyrokinetic_buildup": {
+            "color": "#ffb300",
+            "max": 1000,
+            "auto_increase_per_tick": -1
+        }
+    },
     "abilities": {
         "main": {
             "type": "posthuman:mastery_prop",
@@ -21,25 +28,6 @@
                 0,
                 0
             ]
-        },
-        "mastery_gain": {
-            "type": "posthuman:mastery_gain_prop",
-            "prop": "posthuman.pyrokinesisMastery",
-            "hidden": true,
-            "amount": 50,
-            "power": "pyrokinesis",
-            "pos_mult": 1.5,
-            "neg_mult": 2,
-            "lvl_mult": 0.1,
-            "forgiveness": "nice",
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:ability_enabled",
-                        "ability": "fireball_main"
-                    }
-                ]
-            }
         },
         "flight": {
             "type": "palladium:attribute_modifier",
@@ -143,25 +131,6 @@
                 ]
             }
         },
-        "flight_white": {
-            "type": "palladium:particles",
-            "hidden": true,
-            "particle_type": "posthuman:fire_white",
-            "emitter": "posthuman:limbs",
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:is_hovering_or_flying"
-                    },
-                    {
-                        "type": "palladium:integer_property",
-                        "property": "posthuman.pyrokinesisColour",
-                        "min": 4,
-                        "max": 4
-                    }
-                ]
-            }
-        },
         "fireball_main": {
             "type": "palladium:dummy",
             "icon": "#posthuman:pyrokinesis/fireball",
@@ -169,6 +138,7 @@
                 -1,
                 0
             ],
+            "list_index": 0,
             "title": "Fireball",
             "description": "Launch a ball of fire that explodes on impact.",
             "conditions": {
@@ -342,45 +312,6 @@
                 ]
             }
         },
-        "fireball_white": {
-            "type": "palladium:projectile",
-            "entity_type": "palladium:custom_projectile",
-            "hidden": true,
-            "velocity": 3,
-            "entity_data": {
-                "Damage": 3,
-                "Gravity": 0,
-                "DieOnEntityHit": true,
-                "DieOnBlockHit": true,
-                "ExplosionRadius": 0.5,
-                "ExplosionCausesFire": true,
-                "Appearances": [
-                    {
-                        "Type": "item",
-                        "Item": "minecraft:stone"
-                    },
-                    {
-                        "Type": "particles",
-                        "ParticleType": "posthuman:fire_white",
-                        "Spread": 0.1
-                    }
-                ]
-            },
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:ability_enabled",
-                        "ability": "fireball_main"
-                    },
-                    {
-                        "type": "palladium:integer_property",
-                        "property": "posthuman.pyrokinesisColour",
-                        "min": 4,
-                        "max": 4
-                    }
-                ]
-            }
-        },
         "flame_colour_cycle": {
             "type": "posthuman:prop_adjust_num",
             "prop": "posthuman.pyrokinesisColour",
@@ -388,7 +319,7 @@
             "description": "Cycle through the different flame colours.",
             "amount": 1,
             "mode": "add",
-            "num2": 4,
+            "num2": 3,
             "num3": 0,
             "reset": true,
             "icon": "#posthuman:pyrokinesis/main",
@@ -420,7 +351,7 @@
             "hidden": true,
             "conditions": {
                 "enabling": [
-                     {
+                    {
                         "type": "palladium:ability_unlocked",
                         "ability": "flame_colour_cycle"
                     }
@@ -453,17 +384,37 @@
                 ]
             }
         },
-        "set_burn": {
-            "type": "posthuman:set_fire",
+        "fire_mode": {
+            "type": "palladium:render_layer",
+            "render_layer": "posthuman:flamebody",
             "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle"
+                    }
+                ]
+            }
+        },
+        "fire_mode_particles": {
+            "type": "palladium:particles",
+            "hidden": true,
+            "particle_type": "posthuman:fire_orange",
+            "emitter": "posthuman:body",
             "conditions": {
                 "enabling": [
                     {
                         "type": "palladium:or",
-                        "condition": [
+                        "conditions": [
                             {
-                                "type": "palladium:ability_enabled",
-                                "ability": "flight"
+                                "type": "palladium:ability_first_tick",
+                                "ability": "fire_mode"
+                            },
+                            {
+                                "type": "palladium:ability_last_tick",
+                                "ability": "fire_mode"
                             }
                         ]
                     }

@@ -8,6 +8,9 @@ let physical = [
     'wraith',
     'wings'
 ]
+let uuidList = [
+    `aa930136-21c9-41a4-9dad-6c08a3bf8f8d`
+]
 PlayerEvents.tick(event => {
     let player = event.player;
     if (!palladium.superpowers.hasSuperpower(player, 'posthuman:stats')) {
@@ -15,7 +18,7 @@ PlayerEvents.tick(event => {
     }
 })
 PlayerEvents.loggedIn(event => {
-    const { player, server } = event
+    let { player, server } = event
     if (!player.persistentData.getBoolean("first_join")) {
         player.persistentData.putBoolean("first_join", true)
         let number = Math.floor(Math.random() * (100 - 1 + 1) + 1)
@@ -30,5 +33,13 @@ PlayerEvents.loggedIn(event => {
             player.tags.add(tag)
             player.setStatusMessage('§aYou are born with a natural potential to manifest ' + power + ', without negative side effects.')
         }
+    }
+})
+PlayerEvents.loggedIn(event => {
+    let player = event.player
+    let uuid = player.getUuid().toString().toLowerCase()
+    let username = player.getGameProfile().getName()
+    if (uuidList.includes(uuid)) {
+        server.runCommandSilent(`title ${username} title WOW`)
     }
 })
