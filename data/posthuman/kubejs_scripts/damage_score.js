@@ -53,3 +53,31 @@ EntityEvents.death(event => {
         })
     }
 })
+
+let namespace = 'minecraft'
+let item = 'diamond_sword'
+
+EntityEvents.death(event => {
+    let entity = event.entity
+    let player = event.source.actual
+    if (player.isPlayer() && entity.isLivingEntity()) {
+        let itemId = `${namespace}:${item}`
+        let handItem = player.getMainHandItem()
+        let levels = {
+            1: 10,
+            2: 25,
+            3: 50,
+            4: 75,
+            5: 100
+        }
+        if (handItem == itemId) {
+            let killCount = handItem.nbt?.killCount ?? 0
+            let currentLevel = handItem.nbt?.weaponLevel ?? 0
+            handItem.nbt?.killCount = killCount + 1
+            let nextLevel = currentLevel + 1
+            if (killCount >= levels.nextLevel) {
+                handItem.nbt?.weaponLevel = nextLevel
+            }
+        } else return
+    } else return
+})

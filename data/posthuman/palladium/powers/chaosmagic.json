@@ -79,20 +79,6 @@
                     }
                 ]
             }
-        },
-        "ce": {
-            "type": "palladium:particles",
-            "particle_type": "posthuman:cursed_energy",
-            "emitter": [
-                "posthuman:hands"
-            ],
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:held"
-                    }
-                ]
-            }
         }
     }
 }
