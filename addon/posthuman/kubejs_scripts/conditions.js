@@ -78,3 +78,31 @@ StartupEvents.registry('palladium:condition_serializer', (event) => {
       else return false
     })
 })
+StartupEvents.registry('palladium:condition_serializer', (event) => {
+  event.create('posthuman:item_nbt_num')
+    .addProperty('nbt', 'string', 'killCount', 'nbt path')
+    .addProperty('true_value', 'integer', 10, 'the value required to activate')
+    .addProperty('hand', 'string', 'main', 'main or off')
+    .test((entity, props) => {
+      let nbtPath = props.get('nbt')
+      let true_value = props.get('true_value')
+      let hand = props.get('hand')
+      if (hand == 'main') {
+        let item = entity.getMainHandItem()
+        if (item != null) {
+          let itemNbt = item.nbt
+          let nbtValue = itemNbt[nbtPath]
+          if (nbtValue == true_value) return true
+          else return false
+        } else return false
+      } else if (hand == 'off') {
+        let item = entity.getOffHandItem()
+        if (item != null) {
+          let itemNbt = item.nbt
+          let nbtValue = itemNbt[nbtPath]
+          if (nbtValue == true_value) return true
+          else return false
+        } else return false
+      } else return false
+    })
+})
