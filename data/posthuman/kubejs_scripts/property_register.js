@@ -45,4 +45,6 @@ PalladiumEvents.registerProperties((event) => {
     event.registerProperty('posthuman.speedLevel', 'integer', 0)
     event.registerProperty('posthuman.ringSlot', 'string', 'empty')
     event.registerProperty('posthuman.readPower', 'string', 'empty')
+    event.registerProperty('damage_score', 'integer', 0)
+    event.registerProperty('posthuman.ofaStoredPowers', 'string_array', [])
 })

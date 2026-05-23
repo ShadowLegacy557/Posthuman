@@ -1,0 +1,17 @@
+{
+    "type": "palladium:laser",
+    "glow_color": "#ffffff",
+    "core_color": "#ffffff",
+    "rainbow": false,
+    "glow_opacity": 1,
+    "core_opacity": 1,
+    "bloom": 2,
+    "size": 1,
+    "normal_transparency": false,
+    "rotation": 0,
+    "rotation_speed": 0,
+    "visibility": {
+        "first_person": true,
+        "third_person": true
+    }
+}
